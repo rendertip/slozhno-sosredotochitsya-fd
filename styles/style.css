@@ -1,5 +1,372 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  padding: var(--adaptive-margin);
+  background: var(--bg-color) var(--bg-image) no-repeat center / cover;
+  background-attachment: fixed;
+  
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+}
+.header {
+  display: grid;
+  block-size: 97vh;
+  min-block-size: 648px;
+  grid-template-columns: 100%;
+  /* grid-template-rows: 1fr auto 1fr; */
+  grid-template-rows: 35% 31% 33%;;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--section-title-color);
+  border-bottom: 1px solid var(--section-title-color);
+  bottom: 0px;
+  left: 0;
+}
+
+.rec {
+  position: absolute;
+  top: 1px;
+  right: 8px;
+  color: var(--accent-color);
+  font-family: 'IBM Plex mono', monospace;
+  font-weight: normal;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: normal;
+}
+
+.rec::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 6px 4px var(--accent-color);
+
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--section-title-color);
+  border-right: 1px solid var(--section-title-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--section-title-color);
+  font-family: 'IBM Plex mono', monospace;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.header__theme-menu-button {
+  width: 70px;
+  text-transform: lowercase;
+  background-color: transparent;
+  border: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-block-end: 1px solid var(--section-title-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--border-hover-color);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--section-title-color);
+  pointer-events: none;
+}
+
+.title {
+  display: inline-block;
+  block-size: min-content;
+  align-self: center;
+  font-family: 'IBM Plex mono', monospace;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  color: var(--title-color);
+  line-height: 83%;
+  justify-self: center;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__article {
+  display: block;
+  align-self: center;
+  block-size: min-content;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 129%;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
+  font-family: 'IBM Plex mono', monospace;
+}
+
+.section {
+  margin-block-start: 50px;
+}
+
+.section:first-of-type {
+  margin-top: 48px;
+}
+
+
+.section__title {
+  color: var(--section-title-color);
+  font-family: 'IBM Plex mono', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 140%;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.card__title {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 123%;
+}
+
+.card__text {
+  margin-top: 10px;
+  font-family: 'IBM Plex mono', monospace;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: normal;
+  background-color: transparent;
+  line-height: 130%;
+}
+
+.regular-text {
+  font-weight: normal;
+}
+
+.card__link {
+  text-decoration: none;
+  text-shadow: 1px 1px 0 var(--accent-color);
+}
+
+.card__link:hover {
+  border-block-end: 1px solid var(--text-color);
+}
+
+.card__link:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+
+.card__gallery {
+  display: grid;
+  gap: var(--adaptive-margin);
+  margin-block-start: var(--adaptive-margin);
+  justify-items: center;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  object-fit: contain;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 97vh;
+  min-block-size: 648px;
+  margin-block-start: 55px;
+  
+}
+
+@media (width >= 768px) {
+
+  .header {
+    grid-template-rows: 45% 10% 45%;
+    block-size: 96dvh;
+  }
+
+  .header__theme-menu{
+    justify-self: flex-end;
+  }
+
+  .title {
+    justify-self: flex-start;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    margin-inline-start: -20px;
+  }
+
+  .header__article{
+    justify-self: flex-end;
+    inline-size: 50%;
+  }
+
+  .section {
+    margin-block-start: 80px;
+  }
+
+  .section:first-of-type {
+    margin-block-start: 81px;
+  }
+
+  .card {
+    margin-top: 0;
+  }
+
+  .reasons, .tips {
+    display: grid;
+    grid-template-columns: 1fr 66%;
+    gap: 20px;
+  }
+
+  .reasons .section__title, .tips .section__title {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+  
+  .reasons .card, .tips .card {
+    grid-column: 2;
+  }
+
+  .reasons .card__title:first-of-type, .tips .card__title:first-of-type {
+    margin-top: 0;
+    max-height: min-content;
+  }
+  
+  .distractions {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: min-content min-content;
+    margin-block-start: 61px;
+
+  }
+
+  .distractions .section__title {
+    grid-column: 1;
+  }
+  
+  .distractions .card {
+    grid-row: 2;
+    grid-column: 1 / 7;
+  }
+
+  .gallery {
+    margin-block-start: 88px;
+  }
+
+  .card__gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;   
+  }
+
+  .card__image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+  }
+
+  .card__image:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .card__image:nth-child(2) {
+    grid-row: 1 / 3;
+    grid-column: 3;
+  }
+
+  .card__image:nth-child(3) {
+    grid-row: 2 / 4;
+    grid-column: 1;
+  }
+
+  .card__image:nth-child(5) {
+    grid-column: 2 / 4;
+    grid-row: 3;
+  }
+
+  .footer {
+    margin-block-start: calc(var(--adaptive-margin) + 60px);
+    block-size: 96vh;
+  }
+
+  .footer .title {
+    margin-inline-start: -3px;
+  }
+}
+
+
+
+@media (width >= 1024px) {
+
+  .header {
+    grid-template-rows: 45% 10% 49%;
+    block-size: 94.8vh;
+  }
+
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__theme-menu {
+    align-self: flex-start;
+    justify-self: center;
+  }
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .distractions {
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .distractions .card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery {
+    margin-block-start: 86px;
+  }
+
+  .footer {
+    margin-block-start: calc(var(--adaptive-margin) + 60px);
+    block-size: 94.4vh;
+  }
+
 }
