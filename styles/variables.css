@@ -11,5 +11,6 @@
   --text-color: #F1B2CE;
   --section-title-color: #ff0070;
   --border-hover-color: #ff007066;
+  --main-font: 'IBM Plex Mono';
   --adaptive-margin: clamp(10px, calc(10px + ((100vw - 375px) * (10 / (768 - 375)))), 20px);
 }
