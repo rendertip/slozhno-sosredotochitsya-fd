@@ -349,9 +349,11 @@
     flex-direction: row;
   }
 
-  .reasons {
+  .reasons, .tips {
     grid-template-columns: 1fr 66%;
   }
+  
+
 
   .distractions {
     grid-template-rows: min-content 1fr;
@@ -365,7 +367,7 @@
   }
 
   .gallery {
-    margin-block-start: 86px;
+    margin-block-start: 77px;
   }
 
   .footer {
